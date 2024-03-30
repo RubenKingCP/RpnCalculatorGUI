@@ -21,6 +21,9 @@ public class PerformOperations {
             case "/":
                 div();
                 break;
+            case "%":
+                mod();
+                break;
             default:
                 break;
         }

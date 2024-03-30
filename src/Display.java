@@ -3,6 +3,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import java.awt.BorderLayout;
 import java.util.Stack;
+import java.awt.Font;
 
 public class Display {
     private JPanel panel;
@@ -14,6 +15,7 @@ public class Display {
         panel = new JPanel(new BorderLayout());
         textArea = new JTextArea();
         textArea.setEditable(false);
+        textArea.setFont(new Font("Arial", Font.PLAIN, 16));
         JScrollPane scrollPane = new JScrollPane(textArea);
         panel.add(scrollPane, BorderLayout.CENTER);
         updateDisplay();
