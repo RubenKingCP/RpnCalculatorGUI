@@ -27,7 +27,11 @@ public class CalcButton {
         button.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 stackManager.processInput(label);
-                System.out.println("Current top of stack : " + stackManager.getStack().peek());
+                if(!stackManager.getStack().isEmpty()){
+                    System.out.println("Current top of stack : " + stackManager.getStack().peek());
+                } else {
+                    System.out.println("Stack is empty");
+                }
             }
         });
     }

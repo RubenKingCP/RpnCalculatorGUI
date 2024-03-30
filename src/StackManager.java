@@ -8,7 +8,6 @@ public class StackManager {
     public StackManager() {
         stack = new Stack<>();
         oper = new PerformOperations(stack);
-        stack.push(null);
     }
 
     public void processInput(String input) {
@@ -23,7 +22,7 @@ public class StackManager {
             case "-":
             case "*":
             case "/":
-                if (stack.size() > 2) {
+                if (stack.size() >= 2) {
                     oper.performOperation(input);
                 } else {
                     System.out.println("Insufficient operands for operation " + input);
@@ -34,6 +33,7 @@ public class StackManager {
                 break;
             case "OFF":
                 System.exit(0);
+                break;
             default:
                 curNumber += input;
                 break;
