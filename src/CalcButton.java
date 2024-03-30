@@ -26,7 +26,6 @@ public class CalcButton {
         //Add event listener
         button.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                stackManager.processInput(label);
                 if(!stackManager.getStack().isEmpty()){
                     System.out.println("Current top of stack : " + stackManager.getStack().peek());
                 } else {

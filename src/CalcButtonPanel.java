@@ -1,9 +1,11 @@
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JPanel;
+import java.awt.GridLayout;
+import java.awt.Dimension;
 
 public class CalcButtonPanel {
     private JPanel panel;
     private StackManager stackManager;
+    private Display display;
 
     public CalcButtonPanel(StackManager stackManager) {
         this.stackManager = stackManager;
@@ -18,8 +20,18 @@ public class CalcButtonPanel {
                 ".", "0", "="}; // Add more buttons as needed
         
         for (String label : buttonLabels) {
-            panel.add(new CalcButton(label, stackManager).getButton());
+            CalcButton button = new CalcButton(label, stackManager);
+            button.getButton().addActionListener(e -> {
+                stackManager.processInput(label);
+                display.updateDisplay();
+                System.out.println("Button clicked: " + label);
+            });
+            panel.add(button.getButton());
         }
+    }
+
+    public void setDisplay(Display display) {
+        this.display = display;
     }
 
     public JPanel getPanel() {

@@ -1,6 +1,5 @@
 import java.awt.BorderLayout;
 import java.awt.Dimension;
-
 import javax.swing.*;
 
 public class RpnCalculatorApp {
@@ -23,7 +22,8 @@ public class RpnCalculatorApp {
         frame.getContentPane().add(display.getPanel(), BorderLayout.CENTER);
         frame.pack();
         frame.setVisible(true);
+
+        // Update the display whenever a button is clicked
+        panel.setDisplay(display);
     }
-
-
 }

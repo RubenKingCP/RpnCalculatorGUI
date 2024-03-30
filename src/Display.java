@@ -1,5 +1,7 @@
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JTextArea;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import java.awt.BorderLayout;
 import java.util.Stack;
 
 public class Display {
