@@ -1,39 +1,37 @@
-import javax.swing.JButton;
+import javax.swing.*;
+
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class CalcButton {
-    private String name;
     private JButton button;
+    private String label;
 
-    public CalcButton(String name) {
-        this.name = name;
-        initiateButton();
-    }
+    public CalcButton(String label, StackManager stackManager) {
+        //Set variables
+        this.label = label;
 
-    private void initiateButton() {
-        // Create button
-        button = new JButton();
+        //Make button
+        button = new JButton(this.label);
 
-        // Customize Button
-        button.setSize(new Dimension(60, 60));
-        button.setText(this.name);
-        button.setBackground(Color.YELLOW);
+        //Customize Button
+        button.setPreferredSize(new Dimension(60, 60));
+        button.setMaximumSize(new Dimension(60, 60));
+        button.setMinimumSize(new Dimension(60, 60));
+        button.setBackground(Color.RED);
+        button.setForeground(Color.BLACK);
 
-         // Add ActionListener
+        //Add event listener
         button.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                // Display a message when the button is clicked
-                System.out.println("Button clicked: " + name);
+                stackManager.processInput(label);
+                System.out.println("Current top of stack : " + stackManager.getStack().peek());
             }
         });
     }
 
-   
-
-    // Getter method to access the button
     public JButton getButton() {
         return button;
     }

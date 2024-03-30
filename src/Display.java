@@ -1,31 +1,32 @@
-import java.awt.BorderLayout;
-import java.awt.Dimension;
-
-import javax.swing.JFrame;
+import javax.swing.*;
+import java.awt.*;
+import java.util.Stack;
 
 public class Display {
-    public JFrame frame;
-    
-    public Display(){
-        //Make jframe
-        frame = new JFrame();
+    private JPanel panel;
+    private JTextArea textArea;
+    private StackManager stackManager;
 
-        //Customize Frame
-        frame.setTitle("Rpn Calc");
-        frame.setPreferredSize(new Dimension(500, 600));
-        frame.setMinimumSize(new Dimension(500, 600));
-        frame.setMaximumSize(new Dimension(500, 600));
-        frame.setResizable(false);
-        frame.getContentPane().setLayout(new BorderLayout());
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
-        //Add button Panel
-        frame.getContentPane().add(new CalcButtonPanel().getPanel(), BorderLayout.SOUTH);
+    public Display(StackManager stackManager) {
+        this.stackManager = stackManager;
+        panel = new JPanel(new BorderLayout());
+        textArea = new JTextArea();
+        textArea.setEditable(false);
+        JScrollPane scrollPane = new JScrollPane(textArea);
+        panel.add(scrollPane, BorderLayout.CENTER);
+        updateDisplay();
+    }
 
-        //Add display Panel
-        frame.getContentPane().add(new ResultDisplay().getPanel(), BorderLayout.NORTH);
+    public void updateDisplay() {
+        Stack<Double> stack = stackManager.getStack();
+        StringBuilder sb = new StringBuilder();
+        for (Double element : stack) {
+            sb.append(element).append("\n");
+        }
+        textArea.setText(sb.toString());
+    }
 
-        //Shwo frame
-        frame.setVisible(true);
+    public JPanel getPanel() {
+        return panel;
     }
 }
