@@ -22,6 +22,7 @@ public class StackManager {
             case "-":
             case "*":
             case "/":
+            case "%":
                 if (stack.size() >= 2) {
                     oper.performOperation(input);
                 } else {

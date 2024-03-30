@@ -51,4 +51,16 @@ public class PerformOperations {
         }
         st.push(num1 / num2);
     }
+
+    public void mod(){
+        double num2 = st.pop();
+        double num1 = st.pop();
+        if (num2 == 0) {
+            st.push(num1);
+            st.push(num2);
+            System.out.println("Division by 0 error!");
+            return;
+        }
+        st.push(num1 % num2);
+    }
 }
