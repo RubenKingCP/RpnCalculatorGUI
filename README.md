@@ -1,2 +1,0 @@
-Description:
-This repository contains a simple Reverse Polish Notation (RPN) calculator implemented in Java. The RPN calculator provides basic arithmetic operations such as addition, subtraction, multiplication, and division. It features a graphical user interface (GUI) built using Java Swing, allowing users to input numbers and operators via buttons and see the current stack state.
